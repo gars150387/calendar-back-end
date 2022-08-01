@@ -11,7 +11,10 @@ const getEvents = ( request, response = response ) => {
 
 
 const createEvent = ( request, response = response ) => {
-    
+
+    //verifivar evento creado
+    console.log(request.body)
+
     return response.json({
         ok: true,
         msg: 'Create event'
@@ -32,7 +35,7 @@ const deleteEvent = ( request, response = response ) => {
 
     return response.json({
         ok: true,
-        msg: 'Ddelete event'
+        msg: 'Delete event'
     })
 }
 
