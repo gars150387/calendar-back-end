@@ -1,31 +1,40 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model, default: mongoose } = require("mongoose")
 
 
 const EventSchema = Schema({
 
     title: {
         type: String,
-        require: true
+        required: true
     },
     note: {
         type: String,
-        require: true
+        required: true
     },
     start: {
         type: Date,
-        require: true
+        required: true
     },
     end: {
         type: Date,
-        require: true
+        required: true
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     }
 
 
 })
 
+
+EventSchema.method('toJSON', function() {
+    const { _id, __v, ...object } = this.toObject()
+
+    object.id = _id
+    return object
+
+})
 
 module.exports = model( 'Event', EventSchema )
