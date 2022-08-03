@@ -2,7 +2,6 @@ const express = require('express')
 const { dbConnection } = require('./database/config')
 const cors = require('cors')
 require('dotenv').config() //connect with dotenv file
-PORT = (process.env.PORT)
 
 
 
@@ -33,6 +32,6 @@ app.use('/api/events', ( require('./routes/events')))
 
 
 //escuchar peticiones
-app.listen( PORT, () => {
-    console.log('Server on Port', PORT )
+app.listen( process.env.PORT, () => {
+    console.log('Server on Port', process.env.PORT )
 })

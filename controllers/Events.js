@@ -79,7 +79,7 @@ const editEvent = async ( request, response = response ) => {
             user: uid
         }
 
-        const eventUpdated = await Event.findByIdAndUpdate( eventId, newEvent, { new: true } )
+        const eventUpdated = await Event.findByIdAndUpdate( eventId, newEvent, { new: true } ) //3 parameters event id, new event and how it will be returned as new event
 
 
         return response.json({
