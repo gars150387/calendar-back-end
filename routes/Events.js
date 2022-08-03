@@ -1,4 +1,4 @@
-const { Router, application } = require("express");
+const { Router } = require("express");
 const router = Router();
 const { check } = require("express-validator");
 const { validateJWT } = require("../middlewares/validate-jwt");
