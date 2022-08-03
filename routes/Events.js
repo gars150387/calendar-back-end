@@ -8,7 +8,7 @@ const { isDate } = require("../helpers/isDate");
 
 
 //todas tienes que pasar la validacion
-// application.use( validateJWT ) //se le esta diciendo que valide todo 
+application.use( validateJWT ) //se le esta diciendo que valide todo 
                                //desde este punto hacia abajo
 
 
@@ -17,7 +17,7 @@ router.get('/', getEvents )
 
 //crear evento
 router.post('/', [
-    validateJWT,
+    // validateJWT,
     check('title', 'el title es obligatorio').not().isEmpty(),
     check('note', 'la nota es obligatorio').not().isEmpty(),
     check('start', 'Fecha es obligatorio').custom( isDate ),
@@ -27,10 +27,10 @@ router.post('/', [
 ], createEvent)
 
 //editar evento
-router.put('/:id',validateJWT, editEvent)
+router.put('/:id', editEvent)
 
 //eliminar evento
-router.delete('/:id',validateJWT, deleteEvent)
+router.delete('/:id', deleteEvent)
 
 
 module.exports = router
