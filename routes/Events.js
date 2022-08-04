@@ -1,3 +1,10 @@
+/**
+ * Rutas ed Eventos / Events
+ * host + /api/events
+ */
+
+
+
 const { Router } = require("express");
 const router = Router();
 const { check } = require("express-validator");
@@ -33,4 +40,4 @@ router.put('/:id', editEvent)
 router.delete('/:id', deleteEvent)
 
 
-module.exports = router
+module.exports = router;
