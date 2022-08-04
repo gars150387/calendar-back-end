@@ -15,9 +15,6 @@ const { isDate } = require("../helpers/isDate");
 
 
 //todas tienes que pasar la validacion
-application.use( validateJWT ) //se le esta diciendo que valide todo 
-                               //desde este punto hacia abajo
-
 
 //obtener evento
 router.get('/', getEvents )
@@ -25,9 +22,9 @@ router.get('/', getEvents )
 //crear evento
 router.post('/', [
     // validateJWT,
-    check('title', 'el title es obligatorio').not().isEmpty(),
-    check('note', 'la nota es obligatorio').not().isEmpty(),
-    check('start', 'Fecha es obligatorio').custom( isDate ),
+    check('title',validateJWT, 'el title es obligatorio').not().isEmpty(),
+    check('note',validateJWT, 'la nota es obligatorio').not().isEmpty(),
+    check('start',validateJWT, 'Fecha es obligatorio').custom( isDate ),
     check('end', 'Fecha es obligatorio').custom( isDate ),
     validateFields
 
