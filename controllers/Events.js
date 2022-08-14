@@ -5,7 +5,8 @@ const Event = require('../models/Event')
 const getEvents = async ( request, response = response ) => {
 
     const events = await Event.find()
-                                .populate('user', 'name') //to bring more info of the event
+                              .populate('user', 'name') //to bring more info of the event
+                                                    
 
     return response.json({
         ok: true,
@@ -16,12 +17,12 @@ const getEvents = async ( request, response = response ) => {
 
 const createEvent = async ( request, response = response ) => {
 
-    const event = new Event( request.body)
+    const event = new Event( request.body )
+    console.log( request.body )
 
-    console.log( event )
     event.user = request.uid
 
-    console.log( event.user )
+    console.log( 'Event.user', event.user )
 
     try {
         

@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model, default: mongoose, Types } = require("mongoose")
 
 
 const EventSchema = Schema({
@@ -33,7 +33,7 @@ EventSchema.method('toJSON', function() {
     const { _id, __v, ...object } = this.toObject()
 
     object.id = _id
-    return object
+    return object;
 
 })
 
