@@ -48,6 +48,7 @@ const createUser = async (request, response = express.response) => {
 
 const loginUser = async (request, response = express.response) => {
   const { email, password } = request.body;
+  console.log(request.body )
 
   try {
     let user = await User.findOne({ email });

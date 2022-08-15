@@ -1,7 +1,7 @@
-const { Schema, model, default: mongoose, Types } = require("mongoose")
+const { Schema, model } = require("mongoose")
 
 
-const EventSchema = Schema({
+const EventSchema = new Schema({
 
     title: {
         type: String,
